@@ -1,0 +1,44 @@
+.post {
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  display: block;
+  word-wrap: break-word;
+  box-shadow: 0px 0px 1px;
+}
+
+.post, textarea, select, input[type=text] {
+  width: 250px;
+}
+
+textarea {
+  border: 1px solid #1982FC;
+}
+
+.posts, .login {
+  margin: 10px;
+}
+
+.post:nth-child(odd){
+  background-color: whitesmoke;
+}
+
+.status {
+  color: red;
+  white-space: nowrap;
+}
+
+/* note that bootstrap default has different CSS for button and input[type=button] */
+button, input[type=button], input[type=submit] {
+  color: #1982FC;
+}
+
+.loggedin {
+  display: inline-block;
+}
+
+.logout {
+  position: absolute;
+  left: 193px;
+}
