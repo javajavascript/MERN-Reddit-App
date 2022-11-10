@@ -166,7 +166,7 @@ DO NOT go directly to https://dl4422.herokuapp.com/login. Heroku is running the 
 
 ### Heroku Version Control
 
-In VSCode version control, this project may be connected to 2 repos. If that is the case, the second one is Heroku. If we newly clone this repo, this project will only be connected to 1 repo. To check repos, use the command: git remote -v.
+In VSCode version control, this project may be connected to 2 repos. If that is true, the second one is Heroku. If we newly clone this repo, this project will only be connected to 1 repo. To check repos, use the command: git remote -v.
 
 ### Heroku Tutorial
 
