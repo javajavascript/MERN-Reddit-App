@@ -154,24 +154,6 @@ Do not use http links, only use https. Remember to add that link to cors on the 
 10. [Link](https://jsonip.com/)
 11. [Link](http://ip.jsontest.com/)
 
-## Resolved Errors
-
-The below problems have been fixed with [Reference #24](https://stackoverflow.com/questions/54865764/react-usestate-does-not-reload-state-from-props), but this comment has been left here for documentation and learning.
-
-Filter not working, try 5555 backspace with a post that has 555 and a post that has 5555.
-
-Filter is only broken when the post displays an edit button, so it's not actually a filter problem, it's an edit component problem. The posts without the edit button filter correctly. 
-
-The problem is that we have a state variable called text that is initalized to props.post.text (if using implementation in Post.js) or props.text (if using implementation in EditButton.js). The state variable's value is not consistent with the prop's value.
-
-How to see the error: display the text for the post and the edit component for the post. The text line will show up twice, but that is correct because the edit component also shows the text for the post. Now try different search queries and see how the two lines of text become different when they should be the same. 
-
-Also try editing the text of the post, you'll see that only the edit component's text (second line of text) changes, but the post's text (first line of text) does not.
-
-Delete does not visually delete the correct post. This is only a rendering / setState issue. The database is correct, so if we reload the page, the correct posts render.
-
-How to see the error: make sure first post's content is different from second one and delete the first post, the second post appears to get deleted. 
-
 ## Heroku Hosting
 
 [Hosted Here](https://dl4422.herokuapp.com/).
@@ -180,7 +162,11 @@ Make sure the link is https://dl4422.herokuapp.com/ and NOT https://dl4422.herok
 
 The path https://dl4422.herokuapp.com/ automatically redirects to https://dl4422.herokuapp.com/login. 
 
-DO NOT go directly to https://dl4422.herokuapp.com/login. Heroku is running the back end and "faking" the front end by serving a static file. Because of that, all of the Heroku front end routes are actually back end routes. Going directly to https://dl4422.herokuapp.com/login goes to back end "/login" route instead of going to the front end "/login" route. Read below to see how the https://dl4422.herokuapp.com/ route is actually the back end "/" route instead of the front end "/" route. We cannot make the distinction between front end and back end routes on Heroku, but localhost can vai the port number.
+DO NOT go directly to https://dl4422.herokuapp.com/login. Heroku is running the back end and "faking" the front end by serving a static file. Because of that, all of the Heroku front end routes are actually back end routes. Going directly to https://dl4422.herokuapp.com/login goes to back end "/login" route instead of going to the front end "/login" route. Read below to see how it works. Since we are deploying the front end and back end together on Heroku, we cannot make the distinction between the front end and back end routes. One potential fix is deploying the back end on Heroku and the front end on Netlify. Then we would have 2 routes, just like localhost's separate back end and front end.
+
+### Heroku Version Control
+
+In VSCode version control, this project may be connected to 2 repos. The second one is likely Heroku. To check repos, use the command: git remote -v.
 
 ### Heroku Tutorial
 
@@ -211,7 +197,7 @@ Note that some tutorials use app.get('*') instead of app.get('/') in the code bl
 
 Thus, for this project, DO NOT USE app.get('*').
 
-The build folder inside project/front-end only exists because of Heroku. If we are not using Heroku, we do not need the build fodler. It appears to be a copy of the public folder and Heroku uses it to serve the front end.
+The build folder inside project/front-end only exists because of Heroku. If we are not using Heroku, we do not need the build folder. It appears to be a copy of the public folder that Heroku uses to serve the front end.
 
 ### Heroku Commands (package.json) 
 
@@ -236,8 +222,8 @@ Heroku hosting requires a custom back-end port. 4000 is so common that is most d
 
 ### Heroku Front End Port
 
-Heroku hosting also requires a different front-end port. We cannot use localhost as the server url in the front-end. We have to replace it with the url of the Heroku app (https://dl4422.herokuapp.com/). 
+Heroku hosting also requires a different front-end port. We cannot use localhost:4000 as the server route in the front-end. We have to replace it with the route of the Heroku app (https://dl4422.herokuapp.com/). 
 
 The following sources confirm this:
-[Reference #30](https://medium.com/@siobhanpmahoney/deploying-a-react-frontend-rails-backend-project-to-heroku-4b2c4f6f630c)
-[Reference #31](https://stackoverflow.com/questions/66798415/how-to-access-the-environment-port-on-client-side-in-heroku)
+- [Reference #30](https://medium.com/@siobhanpmahoney/deploying-a-react-frontend-rails-backend-project-to-heroku-4b2c4f6f630c)
+- [Reference #31](https://stackoverflow.com/questions/66798415/how-to-access-the-environment-port-on-client-side-in-heroku)
