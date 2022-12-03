@@ -6,9 +6,21 @@ We can run this app on localhost or Heroku. To change the port, go to [App.js](f
 
 We can run this app with MongoDB Atlas (required for Heroku, works with localhost) or MongoDB Compass (only works with localhost). To change the mongo port, go to [app.mjs](back-end/app.mjs) and see lines 34-37.  
 
+To run on localhost, make sure the port mentioned above is in the format localhost:PORT and use the commands:
+
+```
+cd front-end
+npm start
+cd ..
+cd back-end
+npm start
+```
+
+To run on Heroku, read the section at the end titled [Heroku Hosting](#heroku-hosting)
+
 ## Overview
 
-Reddit Clone that allows users to register an account, login, and perform CRUD (create, read, update, delete) operations on posts.
+Reddit Clone that allows users to register an account, login, and perform CRUD (create, read, update, delete) operations on posts. Users can search and sort posts. Users can view posts from any user but can only modify their own posts. Admin login allows admin to modify posts by any user. 
 
 ## Data Model
 
@@ -156,6 +168,8 @@ Do not use http links, only use https. Remember to add that link to cors on the 
 
 ## Heroku Hosting
 
+NOTE: The link below may not work because as of November 28, 2022, Heroku has moved to a paid monthly subscription plan to host on their platform. The subscription plan and link will expire on December 31, 2022. 
+
 [Hosted Here](https://dl4422.herokuapp.com/).
 
 Make sure the link is https://dl4422.herokuapp.com/ and NOT https://dl4422.herokuapp.com/login.
@@ -164,9 +178,29 @@ The path https://dl4422.herokuapp.com/ automatically redirects to https://dl4422
 
 DO NOT go directly to https://dl4422.herokuapp.com/login. Heroku is running the back end and "faking" the front end by serving a static file. Because of that, all of the Heroku front end routes are actually back end routes. Going directly to https://dl4422.herokuapp.com/login goes to back end "/login" route instead of going to the front end "/login" route. Read below to see how it works. Since we are deploying the front end and back end together on Heroku, we cannot make the distinction between the front end and back end routes. One potential fix is deploying the back end on Heroku and the front end on Netlify. Then we would have 2 routes, just like localhost's separate back end and front end.
 
+### Heroku Free Plan Expiration 
+
+As of November 28, 2022, free Heroku hosting has expired. To host this project, add more dynos via their subscription, go to this project directory, and use the command:
+
+```
+heroku ps:scale web=1 -app dl4422
+```
+
+Note that dl4422 is the name of the application.
+
 ### Heroku Version Control
 
-In VSCode version control, this project may be connected to 2 repos. If that is true, the second one is Heroku. If we newly clone this repo, this project will only be connected to 1 repo. To check repos, use the command: git remote -v.
+To push to Heroku, go to this project directory and use the command: 
+
+```
+git push heroku master
+```
+
+In VSCode version control, this project may be connected to 2 repos. If that is true, the second one is Heroku. If we newly clone this repo, this project will only be connected to 1 repo. To check repos, use the command: 
+
+```
+git remote -v
+```
 
 ### Heroku Tutorial
 
