@@ -202,6 +202,8 @@ In VSCode version control, this project may be connected to 2 repos. If that is 
 git remote -v
 ```
 
+Another way to check repos is to show the hidden .git file. In the file, config and refs/remotes show the repos that are connected. If there is no hidden .git file, that means the project is not connected to version control. VSCode and file explorer hide the .git file by default, so the easiest way to see it is to go to file explorer > view > show > hidden items. 
+
 ### Heroku Tutorial
 
 We will discuss Heroku setup and tutorials below. The lines of code below this point came from [this video](https://www.youtube.com/watch?v=HZuGVvRonu0). 
