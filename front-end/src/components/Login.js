@@ -84,7 +84,7 @@ function Login() {
       <button type="submit" onClick={handleLogin}>Login</button><br/>
     </form>
     <span className="status">{status}</span><br/><hr/><br/>
-    <button type="Guest" onClick={handleContinueGuest}>Continue As Guest</button>
+    <button type="Guest" id="continueAsGuest" onClick={handleContinueGuest}>Continue As Guest</button>
     </div>
   );
 }

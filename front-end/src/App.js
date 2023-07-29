@@ -16,7 +16,7 @@ function App() {
   );
 }
 
-// export const server = 'http://localhost:4000/';
-export const server = 'https://dl4422.herokuapp.com/'; //heroku only
+export const server = 'http://localhost:4000/';
+// export const server = 'https://dl4422.herokuapp.com/'; //heroku only
 
 export default App;

@@ -31,8 +31,8 @@ if (process.env.NODE_ENV === 'production') {
 //END: heroku only
 
 mongoose
-  .connect(heroku) //heroku only
-  // .connect(db) //localhost only
+  // .connect(heroku) //heroku only
+  .connect(db) //localhost only
   .then(console.log(`Connected to MongoDB on ${heroku}`)) //heroku only
   // .then(console.log(`Connected to MongoDB on ${db}`)) //localhost only
   .catch(err => console.error(err));
@@ -43,7 +43,13 @@ app.get('/test', (req, res) => res.send('Hello world!'));
 //NOTE: when not hosting on heroku, we can remove the heroku string on line 46, remember to change the front end route too
 //we need app.get('/heroku') for heroku because it needs to use the app.get('/') route to host the front end
 //called by axios.get in posts.js in front end
-app.get('/heroku', (req, res) => {
+// app.get('/heroku', (req, res) => {
+//   Post.find()
+//     .then(posts => res.json(posts)) //posts is res.data in axios.get().then(res) in posts.js in front end, also is the data on localhost:4000/
+//     .catch(err => res.json(err));
+// });
+
+app.get('/', (req, res) => {
   Post.find()
     .then(posts => res.json(posts)) //posts is res.data in axios.get().then(res) in posts.js in front end, also is the data on localhost:4000/
     .catch(err => res.json(err));

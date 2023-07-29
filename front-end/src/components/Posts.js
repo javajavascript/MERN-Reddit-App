@@ -17,12 +17,13 @@ function Posts() {
   const [select, setSelect] = useState('');
   const [status, setStatus] = useState('');
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
   //if we did not come from the login page, force the user back to login
   //when we do npm start or manually go to localhost:3000/, redirect to login
   //this also ensures people who are not logged in can't manually bypass the login page
   useEffect(() => {
-    const location = useLocation(); //eslint rule that we should declare this locally instead of globally if we only use it inside useEffect
-    const navigate = useNavigate(); //eslint rule that we should declare this locally instead of globally if we only use it inside useEffect
     if (location.state === null) {
       navigate('login');
     }
@@ -47,7 +48,8 @@ function Posts() {
   //we need app.get('/heroku') for heroku because it needs to use the app.get('/') route in the back end 
   function getData() {
     axios
-      .get(server+'heroku') //calls app.get(/) in app.mjs in back end
+      .get(server) //calls app.get(/) in app.mjs in back end
+      // .get(server+'heroku') //calls app.get(/) in app.mjs in back end
       .then(res => { //res.data is posts in app.get().then(posts) in app.mjs in back end
         setPosts(res.data); //update model for page to re-render
         setPostsFiltered(res.data); //remember to update postsFiltered
@@ -148,20 +150,20 @@ function Posts() {
     <div className="loggedin">Logged In As: {data.name}</div>
     <input className="logout" type="button" value="Logout" onClick={logout}/><br/><br/>
     <div>Search Posts:</div>
-    <input type="text" placeholder="Search here" onChange={handleSearchChange} value={search}></input><br/>
+    <input id="search" type="text" placeholder="Search here" onChange={handleSearchChange} value={search}></input><br/>
     <select value={select} onChange={handleSelect}>
       <option value="old">Sort Old To New</option>
       <option value="new">Sort New To Old</option>
     </select><br/><br/>
     <form onSubmit={add}>
       <div>Enter Post:</div>
-      <textarea onChange={handleTextChange} value={text} rows="5" cols="20" required></textarea>
-      <br/><input type="submit"></input><span className="status">{status}</span>
+      <textarea id="enterPost" onChange={handleTextChange} value={text} rows="5" cols="20"></textarea>
+      <br/><input type="submit" id="addButton"></input><span className="status">{status}</span>
     </form>
     <br/>
     {postsFiltered.map((post, i) => {
       return (
-        <Post key={i} post={post} remove={remove} server={server} data={data} admin={admin}/>
+        <Post id="post" key={i} post={post} remove={remove} server={server} data={data} admin={admin}/>
       );
     })}
     {/* below is the old rendering when we did not iterate in Posts.js so we had to iterate in Post.js */}

@@ -130,20 +130,46 @@ Links below show that ESLint was installed
 36. [Cors API](https://enable-cors.org/server_expressjs.html)
 37. [Eslint Front End React Not Working](https://stackoverflow.com/questions/59633005/how-is-eslint-integrated-into-create-react-app)
 38. [Eslint React Front End Not Working](https://stackoverflow.com/questions/60289601/override-eslint-settings-in-non-ejected-create-react-app)
+39. [Cypress React Project Example](https://github.com/gregfenton/example-cypress-react-selector-formik/blob/master/cypress/integration/form_spec.js)
+40. [Cypress Element Length](https://stackoverflow.com/questions/46850694/in-cypress-how-to-count-a-selection-of-items-and-get-the-length)
+41. [Cypress First Element Last Element](https://stackoverflow.com/questions/65478186/how-to-click-on-the-next-element-using-the-first-and-last-function-in-cypres)
+42. [Cypress Element Inner Text](https://docs.cypress.io/faq/questions/using-cypress-faq#How-do-I-get-an-elements-text-contents)
 
 ## Test Cases
 
-- add post
-- edit post (only under your name)
-- delete post (only under your name)
-- search posts
-- sort posts
-- search then sort posts
-- sort then search posts
-- sort then add posts 
-- sort then delete posts
+### Implemented
+
+- add
+- do NOT add
+
+- delete (only under your name)
+- do NOT delete (only under your name)
+
+- add, delete
+
+- edit (only under your name)
+- do NOT edit (only under your name)
+
+- add, edit, delete
+
+- search
+- do NOT search
+
+- edit, search
+- add, search, delete, search
+- add, search, edit, search, delete, search
+
+### Not Yet Implemented
+
 - register/login
 - admin
+
+- sort
+- search, sort
+- sort, search
+
+- sort, add
+- sort, delete
 
 ## Interesting
 

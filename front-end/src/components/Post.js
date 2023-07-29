@@ -62,17 +62,17 @@ function Post(props) {
       {props.data.name === props.post.name || props.data.name === props.admin ? 
         <div>
           {showEdit || <div><span>{text}</span><br/></div>}
-          {showEdit || <input type="button" value="Edit" onClick={() => toggleShowEdit(true)}/>}
-          {showEdit && <input type="text" value={text} onChange={handleChange}/>}
-          {showEdit && <input type="button" value="Confirm Edit" onClick={() => {edit(props.post._id); toggleShowEdit(false); toggleShowDelete(false);}}/>}
-          {showEdit && <input type="button" value="Cancel" onClick={() => {toggleShowEdit(false); toggleShowDelete(false);}}/>}
+          {showEdit || <input className="edit" type="button" value="Edit" onClick={() => toggleShowEdit(true)}/>}
+          {showEdit && <input className="editInput" type="text" value={text} onChange={handleChange}/>}
+          {showEdit && <input className="confirmEdit" type="button" value="Confirm Edit" onClick={() => {edit(props.post._id); toggleShowEdit(false); toggleShowDelete(false);}}/>}
+          {showEdit && <input className="cancelEdit" type="button" value="Cancel" onClick={() => {toggleShowEdit(false); toggleShowDelete(false);}}/>}
         </div>
       : null}
       {props.data.name === props.post.name || props.data.name === props.admin ? 
         <div>
-          {showDelete || <input type="button" value="Delete" onClick={() => toggleShowDelete(true)}/>}
-          {showDelete && <input type="button" value="Confirm Delete" onClick={() => {props.remove(props.post._id); toggleShowDelete(false); toggleShowEdit(false);}}/>}
-          {showDelete && <input type="button" value="Cancel" onClick={() => {toggleShowDelete(false); toggleShowEdit(false);}}/>}
+          {showDelete || <input className="delete" type="button" value="Delete" onClick={() => toggleShowDelete(true)}/>}
+          {showDelete && <input className="confirmDelete" type="button" value="Confirm Delete" onClick={() => {props.remove(props.post._id); toggleShowDelete(false); toggleShowEdit(false);}}/>}
+          {showDelete && <input className="cancelDelete" type="button" value="Cancel" onClick={() => {toggleShowDelete(false); toggleShowEdit(false);}}/>}
         </div>
       : null}
     </div>
