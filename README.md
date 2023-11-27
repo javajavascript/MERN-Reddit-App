@@ -18,6 +18,20 @@ npm start
 
 To run on Heroku, read the section at the end titled [Heroku Hosting](#heroku-hosting)
 
+## Cypress
+
+To run tests in browser:
+
+```
+npx cypress open
+```
+
+To check cypress version (or if it is installed):
+
+```
+npx cypress --version
+```
+
 ## Overview
 
 Reddit Clone that allows users to register an account, login, and perform CRUD (create, read, update, delete) operations on posts. Users can search and sort posts. Users can view posts from any user but can only modify their own posts. Admin login allows admin to modify posts by any user. 
