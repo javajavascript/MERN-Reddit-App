@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
+  background-color: #F5F5F5;
   color: #333;
 }
 
@@ -48,12 +48,16 @@ button, input[type=button], input[type=submit] {
 }
 
 .confirmDelete {
-  background-color: #d9534f !important;
+  background-color: #D9534F !important;
+}
+
+.confirmEdit {
+  background-color: green !important;
 }
 
 button:hover, input[type=button]:hover, input[type=submit]:hover {
-  background-color: #155cb3;
-  border: 1px solid #155cb3;
+  background-color: #155CB3;
+  border: 1px solid #155CB3;
 }
 
 .loggedin {
@@ -63,7 +67,7 @@ button:hover, input[type=button]:hover, input[type=submit]:hover {
 
 .logout {
   position: absolute;
-  left: 50%;
+  left: 90%;
   transform: translateX(-50%);
   top: 20px;
 }
