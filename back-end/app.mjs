@@ -31,8 +31,8 @@ if (process.env.NODE_ENV === 'production') {
 //END: heroku only
 
 mongoose
-  // .connect(heroku) //heroku only
-  .connect(db) //localhost only
+  .connect(heroku) //heroku only
+  //.connect(db) //localhost only
   .then(console.log(`Connected to MongoDB on ${heroku}`)) //heroku only
   // .then(console.log(`Connected to MongoDB on ${db}`)) //localhost only
   .catch(err => console.error(err));
